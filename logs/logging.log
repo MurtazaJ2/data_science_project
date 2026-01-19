@@ -1,1 +1,55 @@
-[2026-01-15 12:16:27,007: INFO: main: welcome to our custom logging]
+[2026-01-15 15:43:36,864: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-15 15:43:36,865: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-15 15:43:36,865: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-15 15:43:36,865: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-15 15:43:36,866: INFO: common: created directory at: artifacts]
+[2026-01-15 15:43:36,866: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-15 15:43:37,058: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 23329
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "c69888a4ae59bc5a893392785a938ccd4937981c06ba8a9d6a21aa52b4ab5b6e"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: D77A:31175A:0A63:1229:6968BD91
+Accept-Ranges: bytes
+Date: Thu, 15 Jan 2026 10:13:37 GMT
+Via: 1.1 varnish
+X-Served-By: cache-bom-vanm7210092-BOM
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1768472017.046843,VS0,VE1
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 6ca1eac6fddf797a94c768e1e5cb0afd6d6dae04
+Expires: Thu, 15 Jan 2026 10:18:37 GMT
+Source-Age: 61
+
+]
+[2026-01-15 15:43:37,063: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-19 14:14:38,602: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-19 14:14:38,603: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-19 14:14:38,612: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-19 14:14:38,613: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-19 14:14:38,613: INFO: common: created directory at: artifacts]
+[2026-01-19 14:14:38,613: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-19 14:14:38,613: INFO: data_ingestion: File already exists]
+[2026-01-19 14:14:38,614: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-19 14:14:38,614: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-01-19 14:14:38,617: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-19 14:14:38,617: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-19 14:14:38,618: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-19 14:14:38,618: INFO: common: created directory at: artifacts]
+[2026-01-19 14:14:38,619: INFO: common: created directory at: artifacts/data_validation]
+[2026-01-19 14:14:38,623: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
