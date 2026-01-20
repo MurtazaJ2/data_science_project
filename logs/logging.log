@@ -252,3 +252,145 @@ x==========x]
 [2026-01-20 11:24:46,178: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
 
 x==========x]
+[2026-01-20 11:58:17,699: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-20 11:58:17,700: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:58:17,701: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:58:17,701: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:58:17,701: INFO: common: created directory at: artifacts]
+[2026-01-20 11:58:17,702: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-20 11:58:17,702: INFO: data_ingestion: File already exists]
+[2026-01-20 11:58:17,702: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:58:17,702: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-01-20 11:58:17,703: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:58:17,704: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:58:17,704: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:58:17,705: INFO: common: created directory at: artifacts]
+[2026-01-20 11:58:17,705: INFO: common: created directory at: artifacts/data_validation]
+[2026-01-20 11:58:17,711: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:58:17,711: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2026-01-20 11:58:17,712: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:58:17,712: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:58:17,713: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:58:17,713: INFO: common: created directory at: artifacts]
+[2026-01-20 11:58:17,713: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-20 11:58:17,724: INFO: data_transformation: Splited data into training and test sets]
+[2026-01-20 11:58:17,724: INFO: data_transformation: (1199, 12)]
+[2026-01-20 11:58:17,724: INFO: data_transformation: (400, 12)]
+[2026-01-20 11:58:17,724: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:58:17,724: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-01-20 11:58:17,725: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:58:17,725: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:58:17,726: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:58:17,726: INFO: common: created directory at: artifacts]
+[2026-01-20 11:58:17,726: INFO: common: created directory at: artifacts/model_trainer]
+[2026-01-20 11:58:17,731: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:58:17,731: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-01-20 11:58:17,732: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:58:17,732: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:58:17,733: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:58:17,733: INFO: common: created directory at: artifacts]
+[2026-01-20 11:58:17,733: INFO: common: created directory at: artifacts/model_evaluation]
+[2026-01-20 11:58:18,210: INFO: common: json file saved at: artifacts/model_evaluation/metrics.json]
+[2026-01-20 11:58:20,784: ERROR: main: API request to endpoint /api/2.0/mlflow/registered-models/create failed with error code 403 != 200. Response body: '']
+Traceback (most recent call last):
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/main.py", line 55, in <module>
+    data_ingestion.initiate_model_evaluation()
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/src/datascience/pipeline/model_evaluation_pipeline.py", line 15, in initiate_model_evaluation
+    model_evaluation.log_into_mlflow()
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/src/datascience/components/model_evaluation.py", line 65, in log_into_mlflow
+    mlflow.sklearn.log_model(model, "model", registered_model_name="ElasticnetModel")
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/sklearn/__init__.py", line 426, in log_model
+    return Model.log(
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/models/model.py", line 1357, in log
+    registered_model = mlflow.tracking._model_registry.fluent._register_model(
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/tracking/_model_registry/fluent.py", line 167, in _register_model
+    raise e
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/tracking/_model_registry/fluent.py", line 156, in _register_model
+    create_model_response = client.create_registered_model(name)
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/tracking/client.py", line 3842, in create_registered_model
+    return self._get_registry_client().create_registered_model(
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/telemetry/track.py", line 30, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/tracking/_model_registry/client.py", line 96, in create_registered_model
+    return self.store.create_registered_model(name, tags, description, deployment_job_id)
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/store/model_registry/rest_store.py", line 110, in create_registered_model
+    response_proto = self._call_endpoint(CreateRegisteredModel, req_body)
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/store/model_registry/base_rest_store.py", line 42, in _call_endpoint
+    return call_endpoint(
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 596, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/venv/lib/python3.10/site-packages/mlflow/utils/rest_utils.py", line 321, in verify_rest_response
+    raise MlflowException(
+mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/registered-models/create failed with error code 403 != 200. Response body: ''
+[2026-01-20 11:58:47,106: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.19:8080]
+[2026-01-20 11:58:47,106: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-01-20 11:58:56,488: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:58:56] "GET / HTTP/1.1" 200 -]
+[2026-01-20 11:58:56,497: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:58:56] "[33mGET /static/assets/img/form-v9.jpg HTTP/1.1[0m" 404 -]
+[2026-01-20 11:58:56,502: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:58:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
+[2026-01-20 11:59:20,148: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:59:20] "GET / HTTP/1.1" 200 -]
+[2026-01-20 11:59:20,161: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:59:20] "[33mGET /static/assets/img/form-v9.jpg HTTP/1.1[0m" 404 -]
+[2026-01-20 11:59:29,392: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-20 11:59:29,393: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:59:29,393: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:59:29,394: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:59:29,394: INFO: common: created directory at: artifacts]
+[2026-01-20 11:59:29,394: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-20 11:59:29,394: INFO: data_ingestion: File already exists]
+[2026-01-20 11:59:29,395: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:59:29,395: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-01-20 11:59:29,396: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:59:29,396: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:59:29,397: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:59:29,397: INFO: common: created directory at: artifacts]
+[2026-01-20 11:59:29,397: INFO: common: created directory at: artifacts/data_validation]
+[2026-01-20 11:59:29,403: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:59:29,403: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2026-01-20 11:59:29,405: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:59:29,405: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:59:29,406: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:59:29,406: INFO: common: created directory at: artifacts]
+[2026-01-20 11:59:29,406: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-20 11:59:29,417: INFO: data_transformation: Splited data into training and test sets]
+[2026-01-20 11:59:29,417: INFO: data_transformation: (1199, 12)]
+[2026-01-20 11:59:29,417: INFO: data_transformation: (400, 12)]
+[2026-01-20 11:59:29,417: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:59:29,417: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-01-20 11:59:29,418: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:59:29,419: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:59:29,419: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:59:29,419: INFO: common: created directory at: artifacts]
+[2026-01-20 11:59:29,419: INFO: common: created directory at: artifacts/model_trainer]
+[2026-01-20 11:59:29,424: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:59:29,425: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-01-20 11:59:29,426: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-20 11:59:29,426: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-20 11:59:29,427: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-20 11:59:29,427: INFO: common: created directory at: artifacts]
+[2026-01-20 11:59:29,427: INFO: common: created directory at: artifacts/model_evaluation]
+[2026-01-20 11:59:30,670: INFO: common: json file saved at: artifacts/model_evaluation/metrics.json]
+[2026-01-20 11:59:46,604: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
+
+x==========x]
+[2026-01-20 11:59:46,800: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:59:46] "GET /train HTTP/1.1" 200 -]
+[2026-01-20 11:59:53,262: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:59:53] "GET / HTTP/1.1" 200 -]
+[2026-01-20 11:59:53,282: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 11:59:53] "[33mGET /static/assets/img/form-v9.jpg HTTP/1.1[0m" 404 -]
+[2026-01-20 12:00:13,819: INFO: _internal: 192.168.0.19 - - [20/Jan/2026 12:00:13] "POST /predict HTTP/1.1" 200 -]
