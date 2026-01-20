@@ -1,0 +1,3 @@
+['remote "origin"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/MurtazaJ2/data_science_project.s3
