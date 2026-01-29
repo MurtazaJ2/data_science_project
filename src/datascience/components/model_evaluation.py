@@ -24,15 +24,25 @@ os.environ["MLFLOW_TRACKING_PASSWORD"] = "8182909a1298d62fcaa19c5371d4fab7f6fd69
 # ===============================
 # DVC version helper
 # ===============================
-def get_dvc_version():
-    try:
-        # Get current Git commit (this is the real data version)
-        git_commit = subprocess.check_output(
-            ["git", "rev-parse", "HEAD"]
-        ).decode("utf-8").strip()
+import yaml
+from pathlib import Path
 
-        return git_commit
-    except Exception:
+def get_dvc_data_hash(
+    dvc_file="artifacts/data_ingestion/winequality-red.csv.dvc"
+):
+    try:
+        repo_root = Path(__file__).resolve().parents[3]
+        dvc_path = repo_root / dvc_file
+
+        with open(dvc_path, "r") as f:
+            dvc_yaml = yaml.safe_load(f)
+
+        outs = dvc_yaml.get("outs", [])
+        if outs:
+            return outs[0].get("md5") or outs[0].get("hash")
+
+        return "unknown"
+    except Exception as e:
         return "unknown"
 
 
@@ -96,7 +106,7 @@ class ModelEvaluation:
             mlflow.log_params(self.config.all_params)
 
             # 🔗 DVC dataset lineage
-            mlflow.log_param("data_version", get_dvc_version())
+            mlflow.log_param("data_version", get_dvc_data_hash())
             mlflow.log_artifact("artifacts/data_ingestion/winequality-red.csv.dvc")
 
 
