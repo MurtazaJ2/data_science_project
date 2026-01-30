@@ -106,7 +106,7 @@ class ModelEvaluation:
             mlflow.log_params(self.config.all_params)
 
             # 🔗 DVC dataset lineage
-            mlflow.log_param("data_version", get_dvc_data_hash())
+            mlflow.log_text("data_version", get_dvc_data_hash())
             mlflow.log_artifact("artifacts/data_ingestion/winequality-red.csv.dvc")
 
 
