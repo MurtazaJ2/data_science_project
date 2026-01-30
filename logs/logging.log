@@ -694,3 +694,63 @@ x==========x]
 [2026-01-29 17:40:37,299: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
 
 x==========x]
+[2026-01-30 16:14:54,879: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-30 16:14:54,881: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-30 16:14:54,882: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-30 16:14:54,883: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-30 16:14:54,883: INFO: common: created directory at: artifacts]
+[2026-01-30 16:14:54,883: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-30 16:14:54,883: INFO: data_ingestion: File already exists]
+[2026-01-30 16:14:54,885: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-30 16:14:54,885: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-01-30 16:14:54,887: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-30 16:14:54,888: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-30 16:14:54,888: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-30 16:14:54,888: INFO: common: created directory at: artifacts]
+[2026-01-30 16:14:54,888: INFO: common: created directory at: artifacts/data_validation]
+[2026-01-30 16:14:54,893: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-01-30 16:14:54,893: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2026-01-30 16:14:54,894: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-30 16:14:54,894: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-30 16:14:54,895: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-30 16:14:54,895: INFO: common: created directory at: artifacts]
+[2026-01-30 16:14:54,895: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-30 16:14:54,909: INFO: data_transformation: Splited data into training and test sets]
+[2026-01-30 16:14:54,909: INFO: data_transformation: (1199, 12)]
+[2026-01-30 16:14:54,909: INFO: data_transformation: (400, 12)]
+[2026-01-30 16:14:54,909: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2026-01-30 16:14:54,909: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-01-30 16:14:54,910: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-30 16:14:54,911: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-30 16:14:54,911: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-30 16:14:54,911: INFO: common: created directory at: artifacts]
+[2026-01-30 16:14:54,911: INFO: common: created directory at: artifacts/model_trainer]
+[2026-01-30 16:14:56,755: INFO: model_trainer: Training with params: {'alpha': 0.1, 'l1_ratio': 0.1}]
+[2026-01-30 16:15:06,101: INFO: model_trainer: Training with params: {'alpha': 0.1, 'l1_ratio': 0.5}]
+[2026-01-30 16:15:23,352: INFO: model_trainer: Training with params: {'alpha': 0.1, 'l1_ratio': 0.9}]
+[2026-01-30 16:15:41,367: INFO: model_trainer: Training with params: {'alpha': 0.5, 'l1_ratio': 0.1}]
+[2026-01-30 16:15:59,355: INFO: model_trainer: Training with params: {'alpha': 0.5, 'l1_ratio': 0.5}]
+[2026-01-30 16:16:17,357: INFO: model_trainer: Training with params: {'alpha': 0.5, 'l1_ratio': 0.9}]
+[2026-01-30 16:16:35,340: INFO: model_trainer: Training with params: {'alpha': 1.0, 'l1_ratio': 0.1}]
+[2026-01-30 16:16:53,366: INFO: model_trainer: Training with params: {'alpha': 1.0, 'l1_ratio': 0.5}]
+[2026-01-30 16:17:11,362: INFO: model_trainer: Training with params: {'alpha': 1.0, 'l1_ratio': 0.9}]
+[2026-01-30 16:17:28,350: INFO: model_trainer: Best model saved with R2: 0.21423575147598162]
+[2026-01-30 16:17:28,353: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-01-30 16:17:28,353: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-01-30 16:17:28,358: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-01-30 16:17:28,362: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-30 16:17:28,364: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-01-30 16:17:28,365: INFO: common: created directory at: artifacts]
+[2026-01-30 16:17:28,365: INFO: common: created directory at: artifacts/model_evaluation]
+[2026-01-30 16:17:32,491: INFO: common: json file saved at: artifacts/model_evaluation/metrics.json]
+[2026-01-30 16:18:00,344: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
+
+x==========x]
