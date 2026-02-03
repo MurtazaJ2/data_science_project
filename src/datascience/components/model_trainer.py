@@ -2,7 +2,11 @@ import pandas as pd
 import os
 from src.datascience import logger
 from sklearn.linear_model import ElasticNet
+from sklearn.model_selection import ParameterGrid
+from sklearn.metrics import r2_score
 import joblib
+import mlflow
+import mlflow.sklearn
 
 from src.datascience.entity.config_entity import ModelTrainerConfig
 
@@ -15,17 +19,43 @@ class ModelTrainer:
         train_data = pd.read_csv(self.config.train_data_path)
         test_data = pd.read_csv(self.config.test_data_path)
 
-
         train_x = train_data.drop([self.config.target_column], axis=1)
         test_x = test_data.drop([self.config.target_column], axis=1)
-        train_y = train_data[[self.config.target_column]]
-        test_y = test_data[[self.config.target_column]]
+        train_y = train_data[self.config.target_column]
+        test_y = test_data[self.config.target_column]
+        param_grid = {
+            "alpha": self.config.alpha,
+            "l1_ratio": self.config.l1_ratio
+        }
 
+        best_r2 = -1
+        best_model = None
 
-        lr = ElasticNet(alpha=self.config.alpha, l1_ratio=self.config.l1_ratio, random_state=42)
-        lr.fit(train_x, train_y)
+        mlflow.set_experiment("Wine Quality using ElasticNet")
 
-        joblib.dump(lr, os.path.join(self.config.root_dir, self.config.model_name))
+        for params in ParameterGrid(param_grid):
+            with mlflow.start_run(run_name=f"alpha={params['alpha']}_l1={params['l1_ratio']}"):
+                logger.info(f"Training with params: {params}")
 
+                model = ElasticNet(**params, random_state=42)
+                model.fit(train_x, train_y)
 
-    
+                preds = model.predict(test_x)
+                r2 = r2_score(test_y, preds)
+
+                mlflow.log_param("alpha", params["alpha"])
+                mlflow.log_param("l1_ratio", params["l1_ratio"])
+                mlflow.log_metric("r2", r2)
+
+                mlflow.sklearn.log_model(model, "model")
+
+                if r2 > best_r2:
+                    best_r2 = r2
+                    best_model = model
+
+        joblib.dump(
+            best_model,
+            os.path.join(self.config.root_dir, self.config.model_name)
+        )
+
+        logger.info(f"Best model saved with R2: {best_r2}")

@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import List
 
 @dataclass
 class DataIngestionConfig:
@@ -27,8 +28,8 @@ class ModelTrainerConfig:
     train_data_path: Path
     test_data_path: Path
     model_name: str
-    alpha: float
-    l1_ratio: float
+    alpha: List[float]
+    l1_ratio: List[float]
     target_column: str
 
 @dataclass
