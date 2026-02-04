@@ -41,3 +41,4 @@ class ModelEvaluationConfig:
     metric_file_name: Path
     target_column: str
     mlflow_uri: str
+    best_run_id_path: str

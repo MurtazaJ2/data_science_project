@@ -1,0 +1,22 @@
+artifact_path: /home/murtuza/Desktop/Mlops_training/E2E_Projects/data_science_project/mlruns/2/models/m-7e0b1be52e6b4c08baa57e0a8d0eb79b/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.8.1
+model_id: m-7e0b1be52e6b4c08baa57e0a8d0eb79b
+model_size_bytes: 894
+model_uuid: m-7e0b1be52e6b4c08baa57e0a8d0eb79b
+prompts: null
+run_id: 9bb4da7d36df4241be8bd1ff4fd47e91
+utc_time_created: '2026-02-03 10:37:44.354402'
